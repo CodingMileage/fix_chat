@@ -5,7 +5,7 @@ import ParticlesBackrgound from "./components/ParticlesBackground";
 import { auth } from "@/auth";
 import { Button, Fab } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
-import SignOutButton from "./components/SignOutButton";
+import { SignOutButton, SignOutButtonLogo } from "./components/SignOutButton";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -38,6 +38,8 @@ import {
 } from "lucide-react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AccountCircle from "@mui/icons-material/AccountCircle";
+import Link from "next/link";
+import LoginIcon from "@mui/icons-material/Login";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -46,71 +48,57 @@ export const metadata: Metadata = {
   description: "",
 };
 
-export function DropdownMenuDemo() {
+export async function DropdownMenuDemo() {
+  const session = await auth();
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <AccountCircle />
+        <AccountCircle fontSize="large" className="m-3" />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56 bg-black text-white">
-        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+        <DropdownMenuLabel className="text-center">
+          {session?.user?.name}
+        </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem className="hover:bg-gray-800">
-            <User className="mr-2 h-4 w-4" />
-            <a href="/dashboard" className="">
+            <a href="/dashboard" className="flex items-center p-2 w-full">
+              <User className="mr-2 h-4 w-4" />
               <span>Profile</span>
+              <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
             </a>
-            <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuItem className="hover:bg-gray-800">
-            <CreditCard className="mr-2 h-4 w-4" />
-            <span>Billing</span>
-            <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
+            <a href="/billing" className="flex items-center p-2 w-full">
+              <CreditCard className="mr-2 h-4 w-4" />
+              <span>Billing</span>
+              <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
+            </a>
           </DropdownMenuItem>
           <DropdownMenuItem className="hover:bg-gray-800">
-            <Settings className="mr-2 h-4 w-4" />
-            <span>Settings</span>
-            <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+            <a href="/settings" className="flex items-center p-2 w-full">
+              <Settings className="mr-2 h-4 w-4" />
+              <span>Settings</span>
+              <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+            </a>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuSub>
-            <DropdownMenuSubTrigger>
-              <UserPlus className="mr-2 h-4 w-4" />
-              <span>Invite users</span>
-            </DropdownMenuSubTrigger>
-            <DropdownMenuPortal>
-              <DropdownMenuSubContent>
-                <DropdownMenuItem className="hover:bg-gray-800">
-                  <Mail className="mr-2 h-4 w-4" />
-                  <span>Email</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="hover:bg-gray-800">
-                  <MessageSquare className="mr-2 h-4 w-4" />
-                  <span>Message</span>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem className="hover:bg-gray-800">
-                  <PlusCircle className="mr-2 h-4 w-4" />
-                  <span>More...</span>
-                </DropdownMenuItem>
-              </DropdownMenuSubContent>
-            </DropdownMenuPortal>
-          </DropdownMenuSub>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
         <DropdownMenuItem className="hover:bg-gray-800">
-          <LifeBuoy className="mr-2 h-4 w-4" />
-          <span>Support</span>
+          <a href="/support" className="flex items-center p-2 w-full">
+            <LifeBuoy className="mr-2 h-4 w-4" />
+            <span>Support</span>
+          </a>
         </DropdownMenuItem>
-        <DropdownMenuSeparator />
+        {/* <DropdownMenuSeparator />
         <DropdownMenuItem className="hover:bg-gray-800">
-          <LogOut className="mr-2 h-4 w-4" />
-          <span>Log out</span>
-          <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-        </DropdownMenuItem>
+          <a href="/" className="flex items-center p-2 w-full">
+            <LogOut className="mr-2 h-4 w-4" fontSize="large" />
+            <span>Log out</span>
+            <SignOutButton />
+            <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+          </a>
+        </DropdownMenuItem> */}
       </DropdownMenuContent>
     </DropdownMenu>
   );
@@ -153,10 +141,20 @@ export default async function RootLayout({
 
                   <DropdownMenuDemo />
 
-                  <SignOutButton />
+                  <SignOutButtonLogo />
                 </>
               ) : (
-                ""
+                <Link href="/sign-in">
+                  {/* <Button
+                    className="bg-purple-800 hover:bg-purple-900 rounded-3xl m-3"
+                    variant="contained"
+                    color="primary"
+                    size="large"
+                  >
+                    Get Started
+                  </Button> */}
+                  <LoginIcon className="m-3" fontSize="large" />
+                </Link>
               )}
             </div>
             {/* <img className="rounded-full" src={session?.user?.image} alt="" /> */}

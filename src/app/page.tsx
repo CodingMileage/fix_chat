@@ -12,6 +12,16 @@ import {
 } from "@mui/material";
 import ChatIcon from "@mui/icons-material/Chat";
 import { auth } from "@/auth";
+import { motion } from "framer-motion";
+import TestMotion from "./components/TestMotion";
+import Welcome from "./components/Welcome";
+import Link from "next/link";
+
+export async function User() {
+  const session = await auth();
+
+  return session?.user || null;
+}
 
 export default async function Home() {
   const session = await auth();
@@ -19,7 +29,7 @@ export default async function Home() {
   return (
     <main>
       {/* <ParticlesBackground> */}
-      <Container className="p-40 text-center">
+      {/* <Container className="p-40 text-center">
         <Box my={4}>
           <Typography
             className="text-center"
@@ -33,9 +43,7 @@ export default async function Home() {
             Your go-to platform for instant messaging and real-time AI chat
             solutions.
           </Typography>
-          {/* {session?.user?.name && (
-              <h1 className="font-extrabold">Hello {session?.user?.name}</h1>
-            )} */}
+          
           {session?.user ? (
             ""
           ) : (
@@ -51,21 +59,10 @@ export default async function Home() {
             </a>
           )}
         </Box>
-      </Container>
+      </Container> */}
+      <Welcome />
 
-      <Container className="p-40 text-center">
-        <div className="">
-          <Typography variant="h2" component="h1" gutterBottom>
-            Our <span className="text-purple-500">Mission</span>
-          </Typography>
-        </div>
-        <div>
-          <Typography variant="h6" paragraph>
-            Our mission is to revolutionize IT support by harnessing the power
-            of artificial intelligence and its decentralized network of experts.
-          </Typography>
-        </div>
-      </Container>
+      {/* <TestMotion /> */}
 
       {session?.user ? (
         <Fab

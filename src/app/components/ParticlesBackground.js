@@ -1,15 +1,18 @@
 "use client";
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 
 const ParticlesBackground = ({ children }) => {
+  const [isParticlesLoaded, setParticlesLoaded] = useState(false);
+
   const particlesInit = useCallback(async (engine) => {
     await loadSlim(engine);
   }, []);
 
   const particlesLoaded = useCallback(async (container) => {
     console.log(container);
+    setParticlesLoaded(true);
   }, []);
 
   return (
@@ -20,6 +23,10 @@ const ParticlesBackground = ({ children }) => {
           top: 0,
           left: 0,
           zIndex: -1,
+          width: "100%",
+          height: "100%",
+          backgroundColor: isParticlesLoaded ? "transparent" : "#0e021a",
+          transition: "background-color 0.2s ease",
         }}
       >
         <Particles
