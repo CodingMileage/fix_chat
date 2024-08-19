@@ -28,3 +28,18 @@ export function NavLink(props: Omit<ComponentProps<typeof Link>, "ClassName">) {
     />
   );
 }
+
+export function NavButton(
+  props: Omit<ComponentProps<typeof Link>, "ClassName">
+) {
+  const pathname = usePathname();
+  return (
+    <Link
+      {...props}
+      className={cn(
+        " hover:bg-secondary hover:text-secondary-foreground focus-visible:bg-secondary focus-visible:text-secondary-foreground",
+        pathname === props.href && "bg-background text-foreground"
+      )}
+    />
+  );
+}

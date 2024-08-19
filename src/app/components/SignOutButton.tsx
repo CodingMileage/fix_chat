@@ -6,9 +6,12 @@ import LogoutIcon from "@mui/icons-material/Logout";
 
 export function SignOutButtonLogo() {
   return (
-    <Button onClick={() => signOut()}>
+    <button
+      className="m-3 hover:scale-110 duration-500 transition-all"
+      onClick={() => signOut()}
+    >
       <LogoutIcon className="text-white" />
-    </Button>
+    </button>
   );
 }
 

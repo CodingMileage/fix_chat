@@ -1,6 +1,6 @@
 import { FC, ReactNode } from "react";
 import { Button } from "@mui/material";
-import { signIn } from "next-auth/react"; // Ensure this is correctly imported
+import { signIn } from "next-auth/react";
 
 interface GoogleSignInButtonProps {
   children: ReactNode;

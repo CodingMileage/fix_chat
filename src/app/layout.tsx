@@ -40,6 +40,8 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import Link from "next/link";
 import LoginIcon from "@mui/icons-material/Login";
+import { NavButton, NavLink } from "@/components/Nav";
+import ChatIcon from "@mui/icons-material/Chat";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -53,7 +55,12 @@ export async function DropdownMenuDemo() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <AccountCircle fontSize="large" className="m-3" />
+        <button className="">
+          <AccountCircle
+            fontSize="large"
+            className="m-3 hover:scale-110 duration-500 transition-all"
+          />
+        </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56 bg-black text-white">
         <DropdownMenuLabel className="text-center">
@@ -61,27 +68,35 @@ export async function DropdownMenuDemo() {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem className="hover:bg-gray-800">
-            <a href="/dashboard" className="flex items-center p-2 w-full">
-              <User className="mr-2 h-4 w-4" />
-              <span>Profile</span>
-              <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-            </a>
-          </DropdownMenuItem>
-          <DropdownMenuItem className="hover:bg-gray-800">
-            <a href="/billing" className="flex items-center p-2 w-full">
-              <CreditCard className="mr-2 h-4 w-4" />
-              <span>Billing</span>
-              <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-            </a>
-          </DropdownMenuItem>
-          <DropdownMenuItem className="hover:bg-gray-800">
-            <a href="/settings" className="flex items-center p-2 w-full">
-              <Settings className="mr-2 h-4 w-4" />
-              <span>Settings</span>
-              <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-            </a>
-          </DropdownMenuItem>
+          <NavButton href="/dashboard">
+            <DropdownMenuItem className="hover:bg-gray-800">
+              <div className="flex space-x-4 space-y-[2px]">
+                <User />
+                <span>Profile</span>
+                {/* <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut> */}
+              </div>
+            </DropdownMenuItem>
+          </NavButton>
+
+          <NavButton href="/billing" className="flex ">
+            <DropdownMenuItem className="hover:bg-gray-800">
+              <div className="flex space-x-4 space-y-[2px]">
+                <CreditCard className="" />
+                <span>Billing</span>
+                {/* <DropdownMenuShortcut>⌘B</DropdownMenuShortcut> */}
+              </div>
+            </DropdownMenuItem>
+          </NavButton>
+
+          <NavButton href="/settings" className="flex items-center p-2 w-full">
+            <DropdownMenuItem className="hover:bg-gray-800">
+              <div className="flex space-x-4">
+                <Settings />
+                <span>Settings</span>
+                {/* <DropdownMenuShortcut>⌘S</DropdownMenuShortcut> */}
+              </div>
+            </DropdownMenuItem>
+          </NavButton>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem className="hover:bg-gray-800">
@@ -104,6 +119,15 @@ export async function DropdownMenuDemo() {
   );
 }
 
+const SideBarIcon = ({ icon, text }) => {
+  return (
+    <button className="sidebar-icon group">
+      {icon}
+      <span className="sidebar-tooltip group-hover:scale-100">{text}</span>
+    </button>
+  );
+};
+
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -114,17 +138,13 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ParticlesBackrgound>
-          <div className="flex justify-between p-2">
-            <a href="/">
+          <div className="flex justify-between bg-slate-800 backdrop-blur-sm bg-opacity-25">
+            <NavButton href="/">
               <h1 className="font-extrabold text-center text-3xl p-2">
                 FixChat
               </h1>
-              {/* <img
-              className="h-auto max-w-[150px] w-full"
-              src="/images/logo.png"
-              alt="FixChat Logo"
-            /> */}
-            </a>
+            </NavButton>
+            {/* <SideBarIcon text="Fire" icon={<LoginIcon />} /> */}
             <div>
               {session?.user ? (
                 <>
@@ -157,8 +177,27 @@ export default async function RootLayout({
                 </Link>
               )}
             </div>
-            {/* <img className="rounded-full" src={session?.user?.image} alt="" /> */}
           </div>
+          {session?.user ? (
+            <NavButton href="/chat">
+              {/* <SideBarIcon icon={<ChatIcon />} text="uhh" /> */}
+              <Fab
+                style={{
+                  position: "fixed",
+                  bottom: "16px",
+                  right: "16px",
+                }}
+                className="bg-purple-800 bg-opacity-45 backdrop-blur-sm hover:scale-105 hover:bg-purple-800 transition-all duration-200"
+                variant="extended"
+                color="primary"
+              >
+                <ChatIcon />
+                {/* <SideBarIcon icon={<ChatIcon />} text="Profile" /> */}
+              </Fab>
+            </NavButton>
+          ) : (
+            ""
+          )}
           {children}
         </ParticlesBackrgound>
       </body>
