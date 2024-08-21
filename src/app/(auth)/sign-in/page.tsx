@@ -1,5 +1,4 @@
 import SignInForm from "@/components/form/SignInForm";
-import ParticlesBackground from "@/app/components/ParticlesBackground";
 
 const page = () => {
   return (

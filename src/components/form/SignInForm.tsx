@@ -2,7 +2,6 @@
 
 import { Card } from "@mui/material";
 import GoogleSignInButton from "../../app/components/GoogleSignInButton";
-import { signIn } from "next-auth/react";
 
 const SignInForm = () => {
   return (
