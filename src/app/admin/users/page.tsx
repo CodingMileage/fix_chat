@@ -15,7 +15,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { MoreVertical } from "lucide-react";
-import { getData } from "../page";
+// import { getData } from "../page";
 
 function getUsers() {
   return db.user.findMany({
@@ -29,11 +29,19 @@ function getUsers() {
 }
 
 export default async function AdminUserPage() {
-  const [user] = await Promise.all([getData()]);
+  // const [user] = await Promise.all([getData()]);
+  const userCount = await db.user.count();
+
+  const premiumCount = await db.user.count({
+    where: {
+      premium: true,
+    },
+  });
+
   return (
     <>
       <div className="m-4 p-4 ">
-        <PageHeader>Customers ({user.userCount})</PageHeader>
+        <PageHeader>Customers ({userCount})</PageHeader>
         <UsersTable />
       </div>
     </>

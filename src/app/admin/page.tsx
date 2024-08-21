@@ -7,7 +7,29 @@ import {
 } from "@/components/ui/card";
 import db from "@/db/db";
 
-export async function getData() {
+// type UserData = {
+//   userCount: number;
+//   premiumCount: number;
+// };
+
+// export async function getData(): Promise<UserData> {
+//   const userCount = await db.user.count();
+
+//   const premiumCount = await db.user.count({
+//     where: {
+//       premium: true,
+//     },
+//   });
+
+//   return {
+//     userCount,
+//     premiumCount,
+//   };
+// }
+
+export default async function AdminDashboard() {
+  // const [user] = await Promise.all([getData()]);
+  // const user = (await getData()) as UserData;
   const userCount = await db.user.count();
 
   const premiumCount = await db.user.count({
@@ -16,22 +38,10 @@ export async function getData() {
     },
   });
 
-  return {
-    userCount,
-    premiumCount,
-  };
-}
-
-export default async function AdminDashboard() {
-  const [user] = await Promise.all([getData()]);
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <DashboardCard
-          users={user.userCount}
-          premium={user.premiumCount}
-          body="text"
-        />
+        <DashboardCard users={userCount} premium={premiumCount} body="text" />
       </div>
     </>
   );
@@ -39,7 +49,7 @@ export default async function AdminDashboard() {
 
 type DashboardProps = {
   users: number;
-  premium: boolean;
+  premium: number;
   body: string;
 };
 

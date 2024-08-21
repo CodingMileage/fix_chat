@@ -119,14 +119,14 @@ export async function DropdownMenuDemo() {
   );
 }
 
-const SideBarIcon = ({ icon, text }) => {
-  return (
-    <button className="sidebar-icon group">
-      {icon}
-      <span className="sidebar-tooltip group-hover:scale-100">{text}</span>
-    </button>
-  );
-};
+// const SideBarIcon = ({ icon, text }) => {
+//   return (
+//     <button className="sidebar-icon group">
+//       {icon}
+//       <span className="sidebar-tooltip group-hover:scale-100">{text}</span>
+//     </button>
+//   );
+// };
 
 export default async function RootLayout({
   children,
@@ -141,24 +141,13 @@ export default async function RootLayout({
           <div className="flex justify-between bg-slate-800 backdrop-blur-sm bg-opacity-25">
             <NavButton href="/">
               <h1 className="font-extrabold text-center text-3xl p-2">
-                FixChat
+                Fix<span className="text-purple-600">Chat</span>
               </h1>
             </NavButton>
             {/* <SideBarIcon text="Fire" icon={<LoginIcon />} /> */}
             <div>
               {session?.user ? (
                 <>
-                  {/* <a href="/dashboard">
-                    <Button
-                      className="bg-purple-800 hover:bg-purple-900 rounded-3xl m-2"
-                      variant="contained"
-                      color="primary"
-                      size="large"
-                    >
-                      Dashboard
-                    </Button>
-                  </a> */}
-
                   <DropdownMenuDemo />
 
                   <SignOutButtonLogo />
@@ -179,7 +168,7 @@ export default async function RootLayout({
             </div>
           </div>
           {session?.user ? (
-            <NavButton href="/chat">
+            <NavButton href="/">
               {/* <SideBarIcon icon={<ChatIcon />} text="uhh" /> */}
               <Fab
                 style={{
