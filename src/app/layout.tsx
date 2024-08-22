@@ -78,7 +78,7 @@ export async function DropdownMenuDemo() {
             </DropdownMenuItem>
           </NavButton>
 
-          <NavButton href="/billing" className="flex ">
+          <NavButton href="/" className="flex ">
             <DropdownMenuItem className="hover:bg-gray-800">
               <div className="flex space-x-4 space-y-[2px]">
                 <CreditCard className="" />
