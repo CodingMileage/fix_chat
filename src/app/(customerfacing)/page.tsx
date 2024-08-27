@@ -21,23 +21,6 @@ export default async function Home() {
   return (
     <main>
       <Welcome />
-
-      {/* {session?.user ? (
-        <Fab
-          style={{
-            position: "fixed",
-            bottom: "16px",
-            right: "16px",
-          }}
-          className="bg-purple-800 hover:bg-purple-900"
-          variant="extended"
-          color="primary"
-        >
-          <ChatIcon />
-        </Fab>
-      ) : (
-        ""
-      )} */}
     </main>
   );
 }

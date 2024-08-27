@@ -9,7 +9,7 @@ interface GoogleSignInButtonProps {
 const GoogleSignInButton: FC<GoogleSignInButtonProps> = ({ children }) => {
   const loginWithGoogle = async () => {
     try {
-      await signIn("google", { callbackUrl: "http://localhost:3000" });
+      await signIn("google", { callbackUrl: "https://fixchat.io" });
     } catch (error) {
       console.error("Error signing in", error);
     }
