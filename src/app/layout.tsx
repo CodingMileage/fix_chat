@@ -138,58 +138,51 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ParticlesBackrgound>
-          <div className="flex justify-between bg-slate-800 backdrop-blur-sm bg-opacity-25">
+          {/* Fixed Navbar */}
+          <div className="flex justify-between bg-slate-800 backdrop-blur-sm bg-opacity-25 fixed top-0 w-full z-50">
             <NavButton href="/">
               <h1 className="font-extrabold text-center text-3xl p-2">
                 Fix<span className="text-purple-600">Chat</span>
               </h1>
             </NavButton>
-            {/* <SideBarIcon text="Fire" icon={<LoginIcon />} /> */}
             <div>
               {session?.user ? (
                 <>
                   <DropdownMenuDemo />
-
                   <SignOutButtonLogo />
                 </>
               ) : (
                 <Link href="/sign-in">
-                  {/* <Button
-                    className="bg-purple-800 hover:bg-purple-900 rounded-3xl m-3"
-                    variant="contained"
-                    color="primary"
-                    size="large"
-                  >
-                    Get Started
-                  </Button> */}
                   <LoginIcon className="m-3" fontSize="large" />
                 </Link>
               )}
             </div>
           </div>
-          {session?.user ? (
-            <NavButton href="/">
-              {/* <SideBarIcon icon={<ChatIcon />} text="uhh" /> */}
-              <Fab
-                style={{
-                  position: "fixed",
-                  bottom: "16px",
-                  right: "16px",
-                }}
-                className="bg-purple-800 bg-opacity-45 backdrop-blur-sm hover:scale-105 hover:bg-purple-800 transition-all duration-200"
-                variant="extended"
-                color="primary"
-              >
-                <ChatIcon />
-                {/* <SideBarIcon icon={<ChatIcon />} text="Profile" /> */}
-              </Fab>
-            </NavButton>
-          ) : (
-            ""
-          )}
-          {children}
+          {/* Adding padding-top to avoid content being hidden under navbar */}
+          <div className="pt-20">
+            {session?.user ? (
+              <NavButton href="/">
+                <Fab
+                  style={{
+                    position: "fixed",
+                    bottom: "16px",
+                    right: "16px",
+                  }}
+                  className="bg-purple-800 bg-opacity-45 backdrop-blur-sm hover:scale-105 hover:bg-purple-800 transition-all duration-200"
+                  variant="extended"
+                  color="primary"
+                >
+                  <ChatIcon />
+                </Fab>
+              </NavButton>
+            ) : (
+              ""
+            )}
+            {children}
+          </div>
         </ParticlesBackrgound>
       </body>
     </html>
   );
 }
+
