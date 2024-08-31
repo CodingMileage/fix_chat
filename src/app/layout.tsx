@@ -145,7 +145,28 @@ export default async function RootLayout({
                 Fix<span className="text-purple-600">Chat</span>
               </h1>
             </NavButton>
-            <div>
+
+            <div className="flex items-center">
+              <NavButton href="/">
+                <h1 className="text-center p-4">Home</h1>
+              </NavButton>
+
+              <NavButton href="/">
+                <h1 className="text-center p-4">AI Utility</h1>
+              </NavButton>
+
+              <NavButton href="/">
+                <h1 className="text-center p-4">News</h1>
+              </NavButton>
+
+              <NavButton href="/">
+                <h1 className="text-center p-4">Guides</h1>
+              </NavButton>
+
+              <NavButton href="/">
+                <h1 className="text-center p-4">Course</h1>
+              </NavButton>
+            
               {session?.user ? (
                 <>
                   <DropdownMenuDemo />
@@ -159,7 +180,7 @@ export default async function RootLayout({
             </div>
           </div>
           {/* Adding padding-top to avoid content being hidden under navbar */}
-          <div className="pt-20">
+          <div className="">
             {session?.user ? (
               <NavButton href="/">
                 <Fab
