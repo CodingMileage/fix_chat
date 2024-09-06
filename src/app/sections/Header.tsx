@@ -18,7 +18,7 @@ export default function Header() {
       <div className="py-5">
         <div className="container">
           <div className="flex items-center justify-between">
-            <h1>
+            <h1 className="font-extrabold text-center text-3xl p-2">
               Fix<span className="text-purple-600">Chat</span>
             </h1>
             <div className="md:hidden">

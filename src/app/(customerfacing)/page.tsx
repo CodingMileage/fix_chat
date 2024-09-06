@@ -18,6 +18,7 @@ import Hero from "../sections/Hero";
 import NavBar from "../sections/NavBar";
 import Header from "../sections/Header";
 import LogoTicker from "../sections/LogoTicker";
+import Product from "../sections/Product";
 
 export default async function Home() {
   const session = await auth();
@@ -29,6 +30,7 @@ export default async function Home() {
       <Header />
       <Hero />
       <LogoTicker />
+      <Product />
     </main>
   );
 }

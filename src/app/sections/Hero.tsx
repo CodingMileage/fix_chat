@@ -13,9 +13,7 @@ export default function Hero() {
       <div className="container">
         <div className="md:flex items-center">
           <div className="md:w-[478px]">
-            <div className="text-sm inline-flex border border-[#222]/10 px-3 py-1 rounded-lg tracking-tight">
-              Dive into the better side of IT
-            </div>
+            <div className="tag">Dive into the better side of IT</div>
             <h1 className="text-5xl font-bold tracking-tighter bg-gradient-to-b from-white to-[#7108b3] text-transparent bg-clip-text mt-6">
               Pathway to productivity
             </h1>
@@ -33,6 +31,7 @@ export default function Hero() {
               </button>
             </div>
           </div>
+
           <div className="mt-20 md:mt-0 md:h-[648px] md:flex-1 relative">
             <Image
               src={cogImage}
