@@ -14,27 +14,21 @@ import { motion } from "framer-motion";
 import Welcome from "../components/Welcome";
 import Link from "next/link";
 import FirstPost from "./test/page";
+import Hero from "../sections/Hero";
+import NavBar from "../sections/NavBar";
+import Header from "../sections/Header";
+import LogoTicker from "../sections/LogoTicker";
 
 export default async function Home() {
   const session = await auth();
 
   return (
     <main>
-      {/* <div className="flex flex-col p-4 m-4 bg-slate-800 backdrop-blur-sm bg-opacity-50">
-        <div className="justify-between flex">
-          <img src="https://loremflickr.com/200/200?random=1" alt="" />
-          <h1 className="item-centered">FixChat</h1>
-          <img src="https://loremflickr.com/200/200?random=1" alt="" />
-        </div>
-        <div className="justify-around flex space-between">
-          <img src="https://loremflickr.com/200/200?random=1" alt="" />
-          <Button variant="contained" color="primary">
-            Start Here
-          </Button>
-          <img src="https://loremflickr.com/200/200?random=1" alt="" />
-        </div>
-      </div> */}
-      <Welcome />
+      {/* <Welcome /> */}
+      {/* <NavBar /> */}
+      <Header />
+      <Hero />
+      <LogoTicker />
     </main>
   );
 }

@@ -18,7 +18,7 @@ export default function Layout({
             <h1 className="font-extrabold text-3xl">Dashboard</h1>
           </NavLink>
         </Nav> */}
-        <div className="containter my-6">{children}</div>
+        <div className="">{children}</div>
       </div>
     </>
   );

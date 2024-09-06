@@ -50,75 +50,6 @@ export const metadata: Metadata = {
   description: "",
 };
 
-export async function DropdownMenuDemo() {
-  const session = await auth();
-  return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <button className="">
-          <AccountCircle
-            fontSize="large"
-            className="m-3 hover:scale-110 duration-500 transition-all"
-          />
-        </button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56 bg-black text-white">
-        <DropdownMenuLabel className="text-center">
-          {session?.user?.name}
-        </DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <NavButton href="/dashboard">
-            <DropdownMenuItem className="hover:bg-gray-800">
-              <div className="flex space-x-4 space-y-[2px]">
-                <User />
-                <span>Profile</span>
-                {/* <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut> */}
-              </div>
-            </DropdownMenuItem>
-          </NavButton>
-
-          <NavButton href="/" className="flex ">
-            <DropdownMenuItem className="hover:bg-gray-800">
-              <div className="flex space-x-4 space-y-[2px]">
-                <CreditCard className="" />
-                <span>Billing</span>
-                {/* <DropdownMenuShortcut>⌘B</DropdownMenuShortcut> */}
-              </div>
-            </DropdownMenuItem>
-          </NavButton>
-
-          <NavButton href="/settings" className="flex items-center p-2 w-full">
-            <DropdownMenuItem className="hover:bg-gray-800">
-              <div className="flex space-x-4">
-                <Settings />
-                <span>Settings</span>
-                {/* <DropdownMenuShortcut>⌘S</DropdownMenuShortcut> */}
-              </div>
-            </DropdownMenuItem>
-          </NavButton>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem className="hover:bg-gray-800">
-          <a href="/support" className="flex items-center p-2 w-full">
-            <LifeBuoy className="mr-2 h-4 w-4" />
-            <span>Support</span>
-          </a>
-        </DropdownMenuItem>
-        {/* <DropdownMenuSeparator />
-        <DropdownMenuItem className="hover:bg-gray-800">
-          <a href="/" className="flex items-center p-2 w-full">
-            <LogOut className="mr-2 h-4 w-4" fontSize="large" />
-            <span>Log out</span>
-            <SignOutButton />
-            <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-          </a>
-        </DropdownMenuItem> */}
-      </DropdownMenuContent>
-    </DropdownMenu>
-  );
-}
-
 // const SideBarIcon = ({ icon, text }) => {
 //   return (
 //     <button className="sidebar-icon group">
@@ -133,77 +64,11 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await auth();
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ParticlesBackrgound>
-          {/* Fixed Navbar */}
-          <div className="flex justify-between bg-slate-800 backdrop-blur-sm bg-opacity-25 fixed top-0 w-full z-50">
-            <NavButton href="/">
-              <h1 className="font-extrabold text-center text-3xl p-2">
-                Fix<span className="text-purple-600">Chat</span>
-              </h1>
-            </NavButton>
-
-            <div className="flex items-center">
-              <NavButton href="/">
-                <h1 className="text-center p-4">Home</h1>
-              </NavButton>
-
-              <NavButton href="/">
-                <h1 className="text-center p-4">AI Utility</h1>
-              </NavButton>
-
-              <NavButton href="/">
-                <h1 className="text-center p-4">News</h1>
-              </NavButton>
-
-              <NavButton href="/">
-                <h1 className="text-center p-4">Guides</h1>
-              </NavButton>
-
-              <NavButton href="/">
-                <h1 className="text-center p-4">Course</h1>
-              </NavButton>
-            
-              {session?.user ? (
-                <>
-                  <DropdownMenuDemo />
-                  <SignOutButtonLogo />
-                </>
-              ) : (
-                <Link href="/sign-in">
-                  <LoginIcon className="m-3" fontSize="large" />
-                </Link>
-              )}
-            </div>
-          </div>
-          {/* Adding padding-top to avoid content being hidden under navbar */}
-          <div className="">
-            {session?.user ? (
-              <NavButton href="/">
-                <Fab
-                  style={{
-                    position: "fixed",
-                    bottom: "16px",
-                    right: "16px",
-                  }}
-                  className="bg-purple-800 bg-opacity-45 backdrop-blur-sm hover:scale-105 hover:bg-purple-800 transition-all duration-200"
-                  variant="extended"
-                  color="primary"
-                >
-                  <ChatIcon />
-                </Fab>
-              </NavButton>
-            ) : (
-              ""
-            )}
-            {children}
-          </div>
-        </ParticlesBackrgound>
+        <ParticlesBackrgound>{children}</ParticlesBackrgound>
       </body>
     </html>
   );
 }
-

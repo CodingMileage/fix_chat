@@ -40,6 +40,18 @@ body {
   .sidebar-tooltip {
     @apply absolute w-auto p-2 m-2 text-xs font-bold text-white transition-all duration-500 origin-left scale-0 bg-gray-900 rounded-md shadow-md min-w-max left-14;
   }
+
+  .btn {
+    @apply bg-white text-black px-4 py-2 rounded font-medium inline-flex items-center justify-center tracking-tighter;
+  }
+
+  .btn-primary {
+    @apply bg-white text-black;
+  }
+
+  .btn-text {
+    @apply text-white bg-transparent;
+  }
 }
 
 body {
