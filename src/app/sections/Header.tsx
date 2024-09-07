@@ -4,9 +4,11 @@ import { IoIosMenu } from "react-icons/io";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 backdrop-blur-sm z-20">
+    <header className="sticky top-0 backdrop-blur-md z-20">
       <div className="flex justify-center items-center py-3 bg-black text-white text-sm gap-3">
-        <p className="text-white/60 hidden md:block">Streamline your IT </p>
+        <p className="text-white/60 hidden md:block">
+          Streamline your IT Experiance
+        </p>
         <div className="inline-flex gap-1 items-center">
           <p>Get started for free</p>
           <div className="p-2">
@@ -31,7 +33,7 @@ export default function Header() {
               <a href="#">Guides</a>
               <a href="#">Courses</a>
               <button className="bg-white text-black px-4 py-2 rounded font-medium inline-flex justify-center tracking-tighter">
-                Get for free
+                Try for free
               </button>
             </nav>
           </div>

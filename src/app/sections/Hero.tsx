@@ -18,8 +18,8 @@ export default function Hero() {
               Pathway to productivity
             </h1>
             <p className="text-xl tracking-tight mt-6">
-              Ever have a technical issue and had to wait in line? With FixChat,
-              that issue is no more.
+              Ever have a technical issue and had to wait in a queue? With
+              FixChat, that issue is no more.
             </p>
             <div className="flex gap-1 items-center mt-[30px]">
               <button className="btn btn-primary hover:bg-white/80">
