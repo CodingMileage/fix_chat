@@ -5,9 +5,9 @@ import { IoIosMenu } from "react-icons/io";
 export default function Header() {
   return (
     <header className="sticky top-0 backdrop-blur-md z-20">
-      <div className="flex justify-center items-center py-3 bg-black text-white text-sm gap-3">
+      <div className="flex justify-center items-center py-1 xl:py-3 bg-black text-white text-sm gap-3">
         <p className="text-white/60 hidden md:block">
-          Streamline your IT Experiance
+          Streamline your IT Experience
         </p>
         <div className="inline-flex gap-1 items-center">
           <p>Get started for free</p>
@@ -17,7 +17,7 @@ export default function Header() {
         </div>
       </div>
 
-      <div className="py-5">
+      <div className="py-2">
         <div className="container">
           <div className="flex items-center justify-between">
             <h1 className="font-extrabold text-center text-3xl p-2">

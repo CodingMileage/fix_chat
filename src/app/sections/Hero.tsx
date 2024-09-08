@@ -33,7 +33,7 @@ export default function Hero() {
           </div>
 
           <div className="mt-20 md:mt-0 md:h-[648px] md:flex-1 relative">
-            <Image
+            {/* <Image
               src={cogImage}
               className="md:absolute h-full md:w-auto md:max-w-none md:-left-6"
             />
@@ -42,7 +42,7 @@ export default function Hero() {
               width={220}
               height={220}
               className="hidden md:block -top-8 -left-32 md:absolute"
-            />
+            /> */}
           </div>
         </div>
       </div>

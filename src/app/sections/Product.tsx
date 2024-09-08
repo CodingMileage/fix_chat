@@ -11,10 +11,10 @@ export default function Product() {
           <div className="flex justify-center">
             <div className="tag text-3xl">Boost your productivity</div>
           </div>
-          <h2 className="text-center text-3xl md:text-[54px] md:leading-[60px] font-bold tracking-tighter bg-gradient-to-b from-white to-[#7108b3] text-transparent bg-clip-text mt-5">
+          <h2 className="section-title mt-5">
             A more effective way of dealing with technical issues.
           </h2>
-          <p className="text-center text-[22px] leading-[30px] tracking-tight mt-5">
+          <p className="section-description mt-5">
             Our AI infused technical support will effortlessly turn your
             problems into solutions.
           </p>
@@ -36,8 +36,11 @@ export default function Product() {
           />
         </div>
 
-        <div className="py-36">What FixChat Offers</div>
-        {/* <img src="https://placehold.co/600" alt="" /> */}
+        <div className="flex justify-center py-36">
+          <div className="font-bold text-3xl tracking-tighter bg-gradient-to-b from-white to-[#7108b3] text-transparent bg-clip-text mt-5">
+            What FixChat Offers
+          </div>
+        </div>
       </div>
     </section>
   );

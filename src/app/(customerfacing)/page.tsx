@@ -20,6 +20,7 @@ import Header from "../sections/Header";
 import LogoTicker from "../sections/LogoTicker";
 import Product from "../sections/Product";
 import Pricing from "../sections/Pricing";
+import { TypewriterEffectSmoothDemo } from "../components/Typewriter";
 
 export default async function Home() {
   const session = await auth();
@@ -33,6 +34,7 @@ export default async function Home() {
       <LogoTicker />
       <Product />
       <Pricing />
+      <TypewriterEffectSmoothDemo />
     </main>
   );
 }
