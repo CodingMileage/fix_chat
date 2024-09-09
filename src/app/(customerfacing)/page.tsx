@@ -23,6 +23,8 @@ import Pricing from "../sections/Pricing";
 import { TypewriterEffectSmoothDemo } from "../components/Typewriter";
 import { FocusCardsDemo } from "../components/FocusCard";
 import { InfiniteMovingCardsDemo } from "../components/MovingCards";
+import { PlaceholdersAndVanishInputDemo } from "../components/PlaceVanish";
+import { AppleCardsCarouselDemo } from "../components/AppleCards";
 
 export default async function Home() {
   const session = await auth();
@@ -33,12 +35,14 @@ export default async function Home() {
       {/* <NavBar /> */}
       <Header />
       <Hero />
+      <PlaceholdersAndVanishInputDemo />
       <LogoTicker />
       <Product />
       <Pricing />
       <TypewriterEffectSmoothDemo />
       <FocusCardsDemo />
       <InfiniteMovingCardsDemo />
+      <AppleCardsCarouselDemo />
     </main>
   );
 }
