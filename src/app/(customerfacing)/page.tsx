@@ -21,6 +21,8 @@ import LogoTicker from "../sections/LogoTicker";
 import Product from "../sections/Product";
 import Pricing from "../sections/Pricing";
 import { TypewriterEffectSmoothDemo } from "../components/Typewriter";
+import { FocusCardsDemo } from "../components/FocusCard";
+import { InfiniteMovingCardsDemo } from "../components/MovingCards";
 
 export default async function Home() {
   const session = await auth();
@@ -35,6 +37,8 @@ export default async function Home() {
       <Product />
       <Pricing />
       <TypewriterEffectSmoothDemo />
+      <FocusCardsDemo />
+      <InfiniteMovingCardsDemo />
     </main>
   );
 }
