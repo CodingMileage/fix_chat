@@ -1,6 +1,8 @@
 "use client";
 
 import { PlaceholdersAndVanishInput } from "@/components/ui/placeholders-and-vanish-input";
+import { motion } from "framer-motion";
+import { TypewriterEffectSmoothDemo } from "./Typewriter";
 
 export function PlaceholdersAndVanishInputDemo() {
   const placeholders = [
@@ -19,15 +21,21 @@ export function PlaceholdersAndVanishInputDemo() {
     console.log("submitted");
   };
   return (
-    <div className="h-[40rem] flex flex-col justify-center  items-center px-4">
-      <h2 className="mb-10 sm:mb-20 text-xl text-center sm:text-5xl text-white">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 2, ease: "easeOut" }}
+      className="h-[40rem] flex flex-col justify-center  items-center px-4"
+    >
+      <TypewriterEffectSmoothDemo />
+      {/* <h2 className="mb-10 sm:mb-20 text-xl text-center sm:text-5xl text-white">
         Ask Fix<span className="text-purple-600">Chat</span> Anything
-      </h2>
+      </h2> */}
       <PlaceholdersAndVanishInput
         placeholders={placeholders}
         onChange={handleChange}
         onSubmit={onSubmit}
       />
-    </div>
+    </motion.div>
   );
 }

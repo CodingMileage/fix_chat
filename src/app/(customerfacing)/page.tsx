@@ -10,7 +10,6 @@ import {
 } from "@mui/material";
 import ChatIcon from "@mui/icons-material/Chat";
 import { auth } from "@/auth";
-import { motion } from "framer-motion";
 import Welcome from "../components/Welcome";
 import Link from "next/link";
 import FirstPost from "./test/page";
@@ -25,6 +24,12 @@ import { FocusCardsDemo } from "../components/FocusCard";
 import { InfiniteMovingCardsDemo } from "../components/MovingCards";
 import { PlaceholdersAndVanishInputDemo } from "../components/PlaceVanish";
 import { AppleCardsCarouselDemo } from "../components/AppleCards";
+import Footer from "../components/Footer";
+import { motion } from "framer-motion";
+import { LayoutGridDemo } from "../components/LayoutGrid";
+import TextRotate from "../components/TextRotate";
+import ParticleSwarmLoader from "../components/SwarmLoader";
+import WhatIsFC from "../components/WhatIsFC";
 
 export default async function Home() {
   const session = await auth();
@@ -34,15 +39,20 @@ export default async function Home() {
       {/* <Welcome /> */}
       {/* <NavBar /> */}
       <Header />
-      <Hero />
+      {/* <Hero /> */}
       <PlaceholdersAndVanishInputDemo />
-      <LogoTicker />
-      <Product />
-      <Pricing />
-      <TypewriterEffectSmoothDemo />
+      <WhatIsFC />
+      {/* <ParticleSwarmLoader /> */}
+      {/* <LogoTicker /> */}
+      {/* <Product /> */}
+      <LayoutGridDemo />
       <FocusCardsDemo />
+      <Pricing />
+      {/* <TypewriterEffectSmoothDemo /> */}
       <InfiniteMovingCardsDemo />
       <AppleCardsCarouselDemo />
+
+      <Footer />
     </main>
   );
 }
