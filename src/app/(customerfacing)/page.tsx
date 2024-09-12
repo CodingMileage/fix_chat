@@ -48,6 +48,7 @@ export default async function Home() {
       {/* <Hero /> */}
       <PlaceholdersAndVanishInputDemo />
       <Example />
+      <InfiniteMovingCardsDemo />
       {/* <WhatIsFC /> */}
       {/* <CardHoverEffectDemo /> */}
       {/* <ParticleSwarmLoader /> */}
@@ -57,8 +58,7 @@ export default async function Home() {
       <FocusCardsDemo />
       <Pricing />
       {/* <TypewriterEffectSmoothDemo /> */}
-      <InfiniteMovingCardsDemo />
-      <AppleCardsCarouselDemo />
+      {/* <AppleCardsCarouselDemo /> */}
 
       <Footer />
     </main>

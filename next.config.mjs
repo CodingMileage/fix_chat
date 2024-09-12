@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["images.unsplash.com", "assets.aceternity.com"], // Add any other domains you need to load images from
+    domains: ["images.unsplash.com", "assets.aceternity.com", "plus.unsplash.com"], // Add any other domains you need to load images from
   },
 };
 

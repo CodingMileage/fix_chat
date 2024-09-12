@@ -2,16 +2,22 @@
 
 import React, { useEffect, useState } from "react";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
+import { motion } from "framer-motion";
 
 export function InfiniteMovingCardsDemo() {
   return (
-    <div className="h-[40rem] rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 2, ease: "easeOut" }}
+      className="rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden"
+    >
       <InfiniteMovingCards
         items={testimonials}
         direction="right"
-        speed="slow"
+        speed="slowest"
       />
-    </div>
+    </motion.div>
   );
 }
 

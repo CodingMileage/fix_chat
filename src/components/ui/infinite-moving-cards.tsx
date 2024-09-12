@@ -16,7 +16,7 @@ export const InfiniteMovingCards = ({
     title: string;
   }[];
   direction?: "left" | "right";
-  speed?: "fast" | "normal" | "slow";
+  speed?: "fast" | "normal" | "slow" | "slower" | "slowest";
   pauseOnHover?: boolean;
   className?: string;
 }) => {
@@ -27,6 +27,7 @@ export const InfiniteMovingCards = ({
     addAnimation();
   }, []);
   const [start, setStart] = useState(false);
+
   function addAnimation() {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
@@ -64,8 +65,12 @@ export const InfiniteMovingCards = ({
         containerRef.current.style.setProperty("--animation-duration", "20s");
       } else if (speed === "normal") {
         containerRef.current.style.setProperty("--animation-duration", "40s");
-      } else {
+      } else if (speed === "slow") {
+        containerRef.current.style.setProperty("--animation-duration", "60s");
+      } else if (speed === "slower") {
         containerRef.current.style.setProperty("--animation-duration", "80s");
+      } else if (speed === "slowest") {
+        containerRef.current.style.setProperty("--animation-duration", "100s");
       }
     }
   };
@@ -87,10 +92,10 @@ export const InfiniteMovingCards = ({
       >
         {items.map((item, idx) => (
           <li
-            className="w-[350px] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-700 px-8 py-6 md:w-[450px]"
+            className="w-[350px] max-w-full relative rounded-2xl px-8 py-6 md:w-[450px]"
             style={{
               background:
-                "linear-gradient(180deg, var(--slate-800), var(--slate-900)",
+                "linear-gradient(180deg, var(--purple-800), var(--slate-900)",
             }}
             key={item.name}
           >
