@@ -1,7 +1,12 @@
+import { TextGenerateEffectDemo } from "./TextGenerate";
+
 export default function FixChat() {
   return (
     <>
-      <div>What Is FixChat</div>
+      <div>
+        <h1 className="section-title">What Is FixChat</h1>
+        <TextGenerateEffectDemo />
+      </div>
     </>
   );
 }

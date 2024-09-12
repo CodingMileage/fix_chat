@@ -30,6 +30,11 @@ import { LayoutGridDemo } from "../components/LayoutGrid";
 import TextRotate from "../components/TextRotate";
 import ParticleSwarmLoader from "../components/SwarmLoader";
 import WhatIsFC from "../components/WhatIsFC";
+import ProductFeatures from "@/components/animata/hero/product-features";
+import WaveReveal from "@/components/animata/text/wave-reveal";
+import { TextGenerateEffectDemo } from "../components/TextGenerate";
+import { CardHoverEffectDemo } from "../components/HoverEffect";
+import Example from "../components/FeatureSection";
 
 export default async function Home() {
   const session = await auth();
@@ -39,9 +44,12 @@ export default async function Home() {
       {/* <Welcome /> */}
       {/* <NavBar /> */}
       <Header />
+      {/* <ProductFeatures /> */}
       {/* <Hero /> */}
       <PlaceholdersAndVanishInputDemo />
-      <WhatIsFC />
+      <Example />
+      {/* <WhatIsFC /> */}
+      {/* <CardHoverEffectDemo /> */}
       {/* <ParticleSwarmLoader /> */}
       {/* <LogoTicker /> */}
       {/* <Product /> */}

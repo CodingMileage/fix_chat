@@ -25,7 +25,7 @@ export function PlaceholdersAndVanishInputDemo() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 2, ease: "easeOut" }}
-      className="h-[40rem] flex flex-col justify-center  items-center px-4"
+      className="h-screen flex flex-col justify-center  items-center px-4"
     >
       <TypewriterEffectSmoothDemo />
       {/* <h2 className="mb-10 sm:mb-20 text-xl text-center sm:text-5xl text-white">

@@ -10,15 +10,9 @@ export default function Layout({
   return (
     <>
       <div>
-        {/* <Nav>
-          <NavLink href="/">
-            <h1 className="font-extrabold text-3xl">Home</h1>
-          </NavLink>
-          <NavLink href="/dashboard">
-            <h1 className="font-extrabold text-3xl">Dashboard</h1>
-          </NavLink>
-        </Nav> */}
-        <div className="">{children}</div>
+        <div className="bg-gradient-to-b from-[#0e021a] to-[#1c0633]">
+          {children}
+        </div>
       </div>
     </>
   );

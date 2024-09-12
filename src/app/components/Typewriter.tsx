@@ -33,3 +33,37 @@ export function TypewriterEffectSmoothDemo() {
     </div>
   );
 }
+
+export function FixchatFuture() {
+  const words = [
+    {
+      text: "FixChat:",
+      className: "text-white",
+    },
+    {
+      text: "The",
+      className: "text-white",
+    },
+    {
+      text: "Future",
+      className: "text-white",
+    },
+    {
+      text: "of",
+      className: "text-white",
+    },
+    {
+      text: "IT",
+      className: "text-purple-500 dark:text-blue-500",
+    },
+    {
+      text: "Support",
+      className: "text-purple-500 dark:text-blue-500",
+    },
+  ];
+  return (
+    <div className="flex flex-col items-center justify-center">
+      <TypewriterEffectSmooth words={words} />
+    </div>
+  );
+}
