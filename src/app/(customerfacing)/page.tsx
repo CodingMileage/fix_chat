@@ -35,6 +35,9 @@ import WaveReveal from "@/components/animata/text/wave-reveal";
 import { TextGenerateEffectDemo } from "../components/TextGenerate";
 import { CardHoverEffectDemo } from "../components/HoverEffect";
 import Example from "../components/FeatureSection";
+import Heroo from "../sections/Heroo";
+import { TextParallaxContentExample } from "../sections/Feature";
+import ComponentName from "../sections/Why";
 
 export default async function Home() {
   const session = await auth();
@@ -46,9 +49,12 @@ export default async function Home() {
       <Header />
       {/* <ProductFeatures /> */}
       {/* <Hero /> */}
-      <PlaceholdersAndVanishInputDemo />
+      <Heroo />
+      {/* <PlaceholdersAndVanishInputDemo /> */}
       <Example />
-      <InfiniteMovingCardsDemo />
+      <TextParallaxContentExample />
+      <ComponentName />
+      {/* <InfiniteMovingCardsDemo /> */}
       {/* <WhatIsFC /> */}
       {/* <CardHoverEffectDemo /> */}
       {/* <ParticleSwarmLoader /> */}
