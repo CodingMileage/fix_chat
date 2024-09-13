@@ -51,6 +51,16 @@ const config = {
         "content-blur": {
           "0%": { filter: "blur(0.3rem)" },
           "100%": { filter: "blur(0)" },
+        },"shine-pulse": {
+          "0%": {
+            "background-position": "0% 0%",
+          },
+          "50%": {
+            "background-position": "100% 100%",
+          },
+          to: {
+            "background-position": "0% 0%",
+          },
         },
         scroll: {
           to: {

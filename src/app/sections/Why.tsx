@@ -170,10 +170,10 @@ const ComponentName = () => {
                 stroke-linejoin="round"
               />
             </svg>
-            <h3 className="mt-12 text-xl font-bold text-gray-900 font-pj">
+            <h3 className="mt-12 text-xl font-bold text-white font-pj">
               Onboarding
             </h3>
-            <p className="mt-5 text-base text-gray-600 font-pj">
+            <p className="mt-5 text-base text-white font-pj">
               Lorem ipsum dolor sit amet, consectetur adipis elit. Sit enim nec,
               proin faucibus nibh et sagittis a. Lacinia purus ac amet.
             </p>
@@ -225,10 +225,10 @@ const ComponentName = () => {
                 stroke-linejoin="round"
               />
             </svg>
-            <h3 className="mt-12 text-xl font-bold text-gray-900 font-pj">
+            <h3 className="mt-12 text-xl font-bold text-white font-pj">
               Product
             </h3>
-            <p className="mt-5 text-base text-gray-600 font-pj">
+            <p className="mt-5 text-base text-white font-pj">
               Lorem ipsum dolor sit amet, consectetur adipis elit. Sit enim nec,
               proin faucibus nibh et sagittis a. Lacinia purus ac amet.
             </p>
@@ -261,10 +261,10 @@ const ComponentName = () => {
                 stroke-linejoin="round"
               />
             </svg>
-            <h3 className="mt-12 text-xl font-bold text-gray-900 font-pj">
+            <h3 className="mt-12 text-xl font-bold text-white font-pj">
               Quality
             </h3>
-            <p className="mt-5 text-base text-gray-600 font-pj">
+            <p className="mt-5 text-base text-white font-pj">
               Lorem ipsum dolor sit amet, consectetur adipis elit. Sit enim nec,
               proin faucibus nibh et sagittis a. Lacinia purus ac amet.
             </p>
@@ -297,10 +297,10 @@ const ComponentName = () => {
                 stroke-linejoin="round"
               />
             </svg>
-            <h3 className="mt-12 text-xl font-bold text-gray-900 font-pj">
+            <h3 className="mt-12 text-xl font-bold text-white font-pj">
               Result
             </h3>
-            <p className="mt-5 text-base text-gray-600 font-pj">
+            <p className="mt-5 text-base text-white font-pj">
               Lorem ipsum dolor sit amet, consectetur adipis elit. Sit enim nec,
               proin faucibus nibh et sagittis a. Lacinia purus ac amet.
             </p>
