@@ -6,8 +6,8 @@ import React, { useState } from "react";
 const ComponentName = () => {
   return (
     <div className="">
-      <section className="relative lg:min-h-[1000px] pt-24 pb-10 sm:pt-32 sm:pb-16 lg:pb-24">
-        <motion.div
+      <section className="relative lg:min-h-[1000px] pt-24 pb-10 sm:pt-32 sm:pb-16 lg:pb-30">
+        {/* <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2, ease: "easeOut" }}
@@ -23,7 +23,7 @@ const ComponentName = () => {
             src="https://cdn.rareblocks.xyz/collection/celebration/images/hero/5/credit-cards-mobile.png"
             alt=""
           />
-        </motion.div>
+        </motion.div> */}
 
         <motion.div
           initial={{ opacity: 0, x: -400 }}

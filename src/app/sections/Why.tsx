@@ -9,7 +9,19 @@ const words = ["Modern Solutions", "Help Instantly", "Better Alternatives"];
 
 const ComponentName = () => {
   return (
-    <section className="py-12 sm:py-16 lg:py-20">
+    <motion.section
+      initial={{ opacity: 0.0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        delay: 0.3,
+        duration: 0.8,
+        ease: "easeInOut",
+      }}
+      viewport={{
+        once: true,
+      }}
+      className="py-12 sm:py-16 lg:py-20"
+    >
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl font-bold leading-tight text-white sm:text-4xl xl:text-5xl font-pj">
@@ -335,7 +347,7 @@ const ComponentName = () => {
           </Box>
         </Container>
       </motion.div>
-    </section>
+    </motion.section>
   );
 };
 export default ComponentName;

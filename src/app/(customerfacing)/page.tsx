@@ -38,6 +38,8 @@ import Example from "../components/FeatureSection";
 import Heroo from "../sections/Heroo";
 import { TextParallaxContentExample } from "../sections/Feature";
 import ComponentName from "../sections/Why";
+import { LampDemo } from "@/components/ui/lamp";
+import { AuroraBackgroundDemo } from "../components/AuroraBg";
 
 export default async function Home() {
   const session = await auth();
@@ -49,12 +51,13 @@ export default async function Home() {
       <Header />
       {/* <ProductFeatures /> */}
       {/* <Hero /> */}
-      <Heroo />
+      {/* <Heroo /> */}
+      <AuroraBackgroundDemo />
       {/* <PlaceholdersAndVanishInputDemo /> */}
       <Example />
       <TextParallaxContentExample />
       <ComponentName />
-      {/* <InfiniteMovingCardsDemo /> */}
+      <InfiniteMovingCardsDemo />
       {/* <WhatIsFC /> */}
       {/* <CardHoverEffectDemo /> */}
       {/* <ParticleSwarmLoader /> */}
@@ -65,7 +68,7 @@ export default async function Home() {
       <Pricing />
       {/* <TypewriterEffectSmoothDemo /> */}
       {/* <AppleCardsCarouselDemo /> */}
-
+      <LampDemo />
       <Footer />
     </main>
   );

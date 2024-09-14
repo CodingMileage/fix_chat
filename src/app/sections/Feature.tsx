@@ -48,9 +48,16 @@ export const TextParallaxContentExample = () => {
 
   return (
     <motion.div
-      initial={{ x: -200, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 4, ease: "easeOut" }}
+      initial={{ opacity: 0.0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        delay: 0.3,
+        duration: 0.8,
+        ease: "easeInOut",
+      }}
+      viewport={{
+        once: true,
+      }}
       className=""
     >
       <TextParallaxContent

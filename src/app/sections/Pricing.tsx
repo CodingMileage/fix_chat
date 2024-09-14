@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { features } from "process";
 import { FaCheck } from "react-icons/fa6";
 import { twMerge } from "tailwind-merge";
@@ -29,7 +32,19 @@ const tiers = [
 
 export default function Pricing() {
   return (
-    <section className="py-24">
+    <motion.section
+      initial={{ opacity: 0.0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        delay: 0.3,
+        duration: 0.8,
+        ease: "easeInOut",
+      }}
+      viewport={{
+        once: true,
+      }}
+      className="py-24"
+    >
       <div className="container">
         <h2 className="section-title mt-5">Pricing</h2>
         <p className="section-description">
@@ -104,6 +119,6 @@ export default function Pricing() {
           )}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

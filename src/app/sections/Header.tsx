@@ -4,7 +4,7 @@ import { IoIosMenu } from "react-icons/io";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 backdrop-blur-md z-20">
+    <header className="sticky top-0 backdrop-blur-md z-40">
       {/* <div className="flex justify-center items-center py-1 xl:py-3 bg-black text-white text-sm gap-3">
         <p className="text-white/60 hidden md:block">
           Streamline your IT Experience
