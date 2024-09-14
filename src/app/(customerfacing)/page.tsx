@@ -40,6 +40,9 @@ import { TextParallaxContentExample } from "../sections/Feature";
 import ComponentName from "../sections/Why";
 import { LampDemo } from "@/components/ui/lamp";
 import { AuroraBackgroundDemo } from "../components/AuroraBg";
+import { BackgroundGradientDemo } from "../components/BackGradient";
+import { StickyScrollRevealDemo } from "../components/StickyScroll";
+import { HeroScrollDemo } from "../components/ContainerScroll";
 
 export default async function Home() {
   const session = await auth();
@@ -48,12 +51,11 @@ export default async function Home() {
     <main>
       {/* <Welcome /> */}
       {/* <NavBar /> */}
-      <Header />
+      {/* <Header /> */}
       {/* <ProductFeatures /> */}
       {/* <Hero /> */}
       {/* <Heroo /> */}
       <AuroraBackgroundDemo />
-      {/* <PlaceholdersAndVanishInputDemo /> */}
       <Example />
       <TextParallaxContentExample />
       <ComponentName />
@@ -68,7 +70,7 @@ export default async function Home() {
       <Pricing />
       {/* <TypewriterEffectSmoothDemo /> */}
       {/* <AppleCardsCarouselDemo /> */}
-      <LampDemo />
+      {/* <LampDemo /> */}
       <Footer />
     </main>
   );

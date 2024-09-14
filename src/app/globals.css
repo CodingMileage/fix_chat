@@ -64,7 +64,7 @@ body {
   }
 
   .section-title {
-    @apply text-center text-3xl md:text-[54px] md:leading-[60px] font-bold tracking-tighter bg-gradient-to-b from-white to-[#7108b3] text-transparent bg-clip-text;
+    @apply text-center text-3xl md:text-[54px] md:leading-[60px] font-bold tracking-tighter bg-gradient-to-b from-white to-purple-600 py-4 bg-clip-text text-transparent;
   }
 
   .section-description {

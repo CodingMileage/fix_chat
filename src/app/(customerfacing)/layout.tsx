@@ -1,4 +1,5 @@
 import { Nav, NavLink } from "../../components/Nav";
+import Header from "../sections/Header";
 
 export const dynamic = "force-dynamic";
 
@@ -11,6 +12,7 @@ export default function Layout({
     <>
       <div>
         <div className="bg-gradient-to-b from-[#0e021a] to-[#1c0633]">
+          <Header />
           {children}
         </div>
       </div>

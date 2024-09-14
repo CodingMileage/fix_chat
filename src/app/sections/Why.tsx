@@ -7,6 +7,20 @@ import { FaShippingFast } from "react-icons/fa";
 import { GiDart } from "react-icons/gi";
 import { RiGuideLine } from "react-icons/ri";
 
+const fadeInAnimationVariants = {
+  initial: {
+    opacity: 0,
+    y: 100,
+  },
+  animate: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.15 * index,
+    },
+  }),
+};
+
 const sections = [
   {
     icon: <FaShippingFast className="text-5xl text-blue-500 mx-auto" />,
@@ -53,7 +67,7 @@ const ComponentName = () => {
       viewport={{
         once: true,
       }}
-      className="py-12 sm:py-16 lg:py-20 bg-gray-900"
+      className="py-12 sm:py-16 lg:py-20"
     >
       <Container maxWidth="lg">
         <Typography
@@ -70,7 +84,14 @@ const ComponentName = () => {
               key={index}
               className="flex flex-col items-center justify-center p-8 bg-gray-800 rounded-lg"
               whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.6 }}
+              variants={fadeInAnimationVariants}
+              initial="initial"
+              whileInView="animate"
+              viewport={{
+                once: true,
+              }}
+              custom={index}
             >
               {section.icon}
               <Typography

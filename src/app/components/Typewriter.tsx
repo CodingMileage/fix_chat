@@ -67,3 +67,25 @@ export function FixchatFuture() {
     </div>
   );
 }
+
+export function WhatIsFC() {
+  const words = [
+    {
+      text: "What",
+      className: "text-white",
+    },
+    {
+      text: "Is",
+      className: "text-white",
+    },
+    {
+      text: "FixChat?",
+      className: "text-purple-500 dark:text-blue-500",
+    },
+  ];
+  return (
+    <div className="flex flex-col items-center justify-center">
+      <TypewriterEffectSmooth words={words} />
+    </div>
+  );
+}

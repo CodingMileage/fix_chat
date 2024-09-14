@@ -8,6 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
+import { WhatIsFC } from "./Typewriter";
 
 const fadeInAnimationVariants = {
   initial: {
@@ -85,14 +86,14 @@ export default function Example() {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 1.5, ease: "easeOut" }}
-      className="py-24 sm:py-32"
+      className="py-24 sm:py-32 "
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 ">
         <div className="mx-auto max-w-2xl lg:text-center">
           <h2 className="text-base font-semibold leading-7 text-indigo-600"></h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            What Is FixChat
-          </p>
+
+          <WhatIsFC />
+
           <p className="mt-6 text-lg leading-8 text-white/70">
             Meet FixChat, the groundbreaking platform designed to transform the
             way you solve IT problems. Whether you’re a seasoned IT professional

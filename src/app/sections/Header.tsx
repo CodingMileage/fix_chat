@@ -21,14 +21,16 @@ export default function Header() {
         <div className="container">
           <div className="flex items-center justify-between">
             <h1 className="font-extrabold text-center text-3xl p-2">
-              Fix<span className="text-purple-600">Chat</span>
+              <a href="/">
+                Fix<span className="text-purple-600">Chat</span>
+              </a>
             </h1>
             <div className="md:hidden">
               <IoIosMenu size={30} />
             </div>
             <nav className="hidden md:flex gap-6 items-center">
-              <a href="#">Home</a>
-              <a href="#">AI Utility</a>
+              <a href="/">Home</a>
+              <a href="/aiUtility">AI Utility</a>
               <a href="#">News</a>
               <a href="#">Guides</a>
               <a href="#">Courses</a>
