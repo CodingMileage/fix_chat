@@ -8,19 +8,18 @@ export function LampDemo() {
     <LampContainer>
       <motion.h1
         initial={{ opacity: 0.5, y: 100 }}
-        whileInView={{ opacity: 1, y: -250 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{
           delay: 0.3,
-          duration: 1.5,
+          duration: 0.8,
           ease: "easeInOut",
         }}
         viewport={{
           once: true,
         }}
-        className="mt-8 bg-gradient-to-b from-purple-500 to-purple-100 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
+        className="mt-8 bg-gradient-to-b from-purple-500 to-white py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
       >
-        Start today <br /> with <br />
-        FixChat
+        IT Support <br /> the right way
       </motion.h1>
     </LampContainer>
   );
@@ -93,7 +92,7 @@ export const LampContainer = ({
           viewport={{
             once: true,
           }}
-          className="absolute inset-auto z-30 h-36 w-64 -translate-y-[6rem] rounded-full bg-purple-800 blur-2xl"
+          className="absolute inset-auto z-30 h-36 w-64 -translate-y-[6rem] rounded-full bg-purple-400 blur-2xl"
         ></motion.div>
         <motion.div
           initial={{ width: "15rem" }}
@@ -106,7 +105,7 @@ export const LampContainer = ({
           viewport={{
             once: true,
           }}
-          className="absolute inset-auto z-50 h-0.5 w-[30rem] -translate-y-[7rem] bg-purple-600 "
+          className="absolute inset-auto z-50 h-0.5 w-[30rem] -translate-y-[7rem] bg-purple-400 "
         ></motion.div>
 
         <div className="absolute inset-auto z-40 h-44 w-full -translate-y-[12.5rem] bg-slate-950 "></div>

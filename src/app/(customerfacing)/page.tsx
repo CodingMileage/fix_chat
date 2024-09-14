@@ -63,8 +63,8 @@ export default async function Home() {
       {/* <ParticleSwarmLoader /> */}
       {/* <LogoTicker /> */}
       {/* <Product /> */}
-      <LayoutGridDemo />
-      <FocusCardsDemo />
+      {/* <LayoutGridDemo /> */}
+      {/* <FocusCardsDemo /> */}
       <Pricing />
       {/* <TypewriterEffectSmoothDemo /> */}
       {/* <AppleCardsCarouselDemo /> */}
