@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { features } from "process";
 import { FaCheck } from "react-icons/fa6";
 import { twMerge } from "tailwind-merge";
 
@@ -46,22 +45,21 @@ export default function Pricing() {
       className="py-24"
     >
       <div className="container">
-        <h2 className="section-title mt-5">Pricing</h2>
+        <h2 className="text-center text-3xl md:text-[54px] md:leading-[60px] font-bold tracking-tighter mb-5 mt-5">
+          Pricing
+        </h2>
         <p className="section-description">
           Free for forever. Upgrade for unlimited AI assistance and more
           exclusive features.
         </p>
         <div className="flex flex-col gap-6 items-center mt-10 lg:flex-row lg:items-end lg:justify-center">
           {tiers.map(
-            ({
-              title,
-              monthlyPrice,
-              buttonText,
-              popular,
-              inverse,
-              features,
-            }) => (
+            (
+              { title, monthlyPrice, buttonText, popular, inverse, features },
+              index
+            ) => (
               <div
+                key={index} // Ensure a unique key for each tier
                 className={twMerge(
                   "p-10 border bg-slate-200 text-black border-[#d55dfa] md:w-1/2 rounded-3xl shadow-[0_7px_14px_#d55dfa] max-w-xs w-full md:max-w-lg",
                   inverse === true && "border-black bg-black text-white"
@@ -107,8 +105,11 @@ export default function Pricing() {
                 </button>
 
                 <ul className="flex flex-col gap-5 mt-8">
-                  {features.map((feature) => (
-                    <li className="text-sm flex items-center gap-4">
+                  {features.map((feature, featureIndex) => (
+                    <li
+                      key={featureIndex} // Ensure a unique key for each feature
+                      className="text-sm flex items-center gap-4"
+                    >
                       <FaCheck />
                       <span>{feature}</span>
                     </li>

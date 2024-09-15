@@ -43,6 +43,7 @@ import { AuroraBackgroundDemo } from "../components/AuroraBg";
 import { BackgroundGradientDemo } from "../components/BackGradient";
 import { StickyScrollRevealDemo } from "../components/StickyScroll";
 import { HeroScrollDemo } from "../components/ContainerScroll";
+import CTA from "../components/CTA";
 
 export default async function Home() {
   const session = await auth();
@@ -71,6 +72,7 @@ export default async function Home() {
       {/* <TypewriterEffectSmoothDemo /> */}
       {/* <AppleCardsCarouselDemo /> */}
       {/* <LampDemo /> */}
+      <CTA />
       <Footer />
     </main>
   );

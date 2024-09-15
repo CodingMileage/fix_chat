@@ -42,7 +42,9 @@ export function InfiniteMovingCardsDemo() {
       transition={{ duration: 2, ease: "easeOut" }}
       className="rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden"
     >
-      <h1 className="section-title">Testimonials</h1>
+      <h1 className="text-center text-3xl md:text-[54px] md:leading-[60px] font-bold tracking-tighter ">
+        Testimonials
+      </h1>
       <InfiniteMovingCards
         items={testimonials}
         direction="right"

@@ -2,8 +2,8 @@
 import { useState } from "react";
 import { LaptopMinimal, LocateOff, ImageIcon } from "lucide-react";
 
-import FlipCard from "@/animata/card/flip-card";
-import WaveReveal from "@/animata/text/wave-reveal";
+import FlipCard from "./flip-card";
+import WaveReveal from "../text/wave-reveal";
 import { cn } from "@/lib/utils";
 
 interface SwapCardProps {

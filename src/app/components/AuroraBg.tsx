@@ -37,7 +37,9 @@ export function AuroraBackgroundDemo() {
         {/* <button className="bg-white rounded-full w-fit text-black px-4 py-2">
           Start Now
         </button> */}
-        <Example />
+        <a href="/aiUtility">
+          <Example />
+        </a>
       </motion.div>
     </AuroraBackground>
   );

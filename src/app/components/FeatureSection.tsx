@@ -9,6 +9,9 @@ import {
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { WhatIsFC } from "./Typewriter";
+import { BsLightningChargeFill } from "react-icons/bs";
+import { TbScript } from "react-icons/tb";
+import { GiTeacher } from "react-icons/gi";
 
 const fadeInAnimationVariants = {
   initial: {
@@ -29,19 +32,19 @@ const features = [
     name: "Lightning-Fast Solutions",
     description:
       "Get immediate, expert guidance for any IT challenge. Simply ask, and FixChat delivers the fix—quickly, effortlessly, and accurately.",
-    icon: CloudArrowUpIcon,
+    icon: BsLightningChargeFill,
   },
   {
     name: "Precision Scripts",
     description:
       "Receive custom-tailored scripts that do the work for you. Designed to tackle your specific issue with pinpoint accuracy, FixChat’s solutions save time and get you back on track faster.",
-    icon: LockClosedIcon,
+    icon: TbScript,
   },
   {
     name: "Expert-Level Support",
     description:
       "Unlock the power of professional-grade IT support. With FixChat, you have access to solutions crafted for the highest standards, giving you the confidence to solve any problem.",
-    icon: ArrowPathIcon,
+    icon: GiTeacher,
   },
   {
     name: "About FixChat",

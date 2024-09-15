@@ -6,6 +6,8 @@ import React from "react";
 import { FaShippingFast } from "react-icons/fa";
 import { GiDart } from "react-icons/gi";
 import { RiGuideLine } from "react-icons/ri";
+import { FaCrown } from "react-icons/fa6";
+import { MdQuickreply } from "react-icons/md";
 
 const fadeInAnimationVariants = {
   initial: {
@@ -47,7 +49,7 @@ const sections = [
       "FixChat turns complex IT issues into easy solutions. Our intuitive platform cuts through the noise, delivering only what you need—quick, clean, and simple.",
   },
   {
-    icon: <RiGuideLine className="text-5xl text-red-500 mx-auto" />,
+    icon: <MdQuickreply className="text-5xl text-red-500 mx-auto" />,
     title: "Why Just Manage When You Can Master?",
     description:
       "FixChat empowers you to take control of your IT problems. Elevate your support process with solutions that are powerful, precise, and always ready when you need them.",
