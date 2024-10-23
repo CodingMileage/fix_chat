@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { FaArrowRight } from "react-icons/fa";
 import Image from "next/image";
 import { IoIosMenu, IoMdClose } from "react-icons/io";
 
@@ -18,8 +17,16 @@ export default function Header() {
         <div className="container mx-auto">
           <div className="flex items-center justify-between">
             <h1 className="font-extrabold text-center text-3xl p-2">
-              <a href="/">
+              {/* <a href="/">
                 Fix<span className="text-purple-600">Chat</span>
+              </a> */}
+              <a href="/">
+                <Image
+                  src="/images/logo2.png"
+                  width={115}
+                  height={115}
+                  alt="FixChat"
+                ></Image>
               </a>
             </h1>
             <div className="md:hidden">

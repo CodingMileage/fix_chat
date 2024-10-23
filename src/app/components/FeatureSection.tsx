@@ -54,7 +54,7 @@ const features = [
   },
 ];
 
-export default function Example() {
+export default function WhatIsFCSection() {
   const [isInView, setIsInView] = useState(false);
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
@@ -64,11 +64,11 @@ export default function Example() {
         const entry = entries[0];
         if (entry.isIntersecting) {
           setIsInView(true);
-          observer.disconnect(); // Stop observing once it's in view
+          observer.disconnect();
         }
       },
       {
-        threshold: 0.3, // Trigger when 10% of the element is visible
+        threshold: 0.3,
       }
     );
 
