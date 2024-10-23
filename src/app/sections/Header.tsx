@@ -19,7 +19,13 @@ export default function Header() {
           <div className="flex items-center justify-between">
             <h1 className="font-extrabold text-center text-3xl p-2">
               <a href="/">
-                Fix<span className="text-purple-600">Chat</span>
+                {/* Fix<span className="text-purple-600">Chat</span> */}
+                <Image
+                  src={"/images/logo2.png"}
+                  height={125}
+                  width={125}
+                  alt="logo"
+                />
               </a>
             </h1>
             <div className="md:hidden">
