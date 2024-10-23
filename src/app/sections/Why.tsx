@@ -56,7 +56,7 @@ const sections = [
   },
 ];
 
-const ComponentName = () => {
+const WhyFC = () => {
   return (
     <motion.section
       initial={{ opacity: 0.0, y: 40 }}
@@ -114,4 +114,4 @@ const ComponentName = () => {
   );
 };
 
-export default ComponentName;
+export default WhyFC;

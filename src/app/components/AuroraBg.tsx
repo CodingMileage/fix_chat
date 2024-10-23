@@ -5,6 +5,8 @@ import React from "react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import Example from "@/components/hover/button";
 import { FlipWords } from "@/components/ui/flip-words";
+import Image from "next/image";
+import AnimatedSVG from "./AnimatedSVG";
 
 const words = [
   "The New Age IT Support",
@@ -28,8 +30,15 @@ export function AuroraBackgroundDemo() {
         }}
         className="relative flex flex-col gap-4 items-center justify-center px-4 overflow-hidden"
       >
-        <div className="text-3xl md:text-7xl font-bold dark:text-white text-center ">
-          FixChat <br /> <FlipWords className="text-white" words={words} />
+        {/* <Image
+          src="/images/FixChat_Homepage_Logo.gif"
+          width={400}
+          height={400}
+        /> */}
+        {/* <AnimatedSVG /> */}
+        <div className="text-3xl md:text-7xl font-bold dark:text-white text-center">
+          FixChat <br />{" "}
+          <FlipWords className="text-white text-center" words={words} />
         </div>
         <div className="font-extralight text-center text-base md:text-4xl dark:text-neutral-200 py-4">
           We merged AI and IT to create instant and precise solutions
