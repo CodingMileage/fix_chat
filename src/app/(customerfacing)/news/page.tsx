@@ -14,16 +14,16 @@ import {
 import { useState, useEffect } from "react";
 
 // Function to fetch articles
-async function fetchArticles(term) {
+async function fetchArticles(term, page = 1) {
   const apiKey = process.env.NEXT_PUBLIC_NEWS_API_KEY;
   const res = await fetch(
-    `https://newsapi.org/v2/everything?q=${term}&pageSize=10&apiKey=${apiKey}`
+    `https://newsapi.org/v2/everything?q=${term}&pageSize=10&page=${page}&apiKey=${apiKey}`
   );
   if (!res.ok) {
     throw new Error("Failed to fetch articles");
   }
   const data = await res.json();
-  return data.articles.slice(0, 10);
+  return data.articles;
 }
 
 export default function News() {
@@ -32,30 +32,21 @@ export default function News() {
   const [searchInput, setSearchInput] = useState("AI");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
 
-  // Fetch articles based on the search term
+  // Fetch articles based on the search term and page
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      let collectedArticles = [];
-
       try {
-        while (collectedArticles.length < 10) {
-          const fetchedArticles = await fetchArticles(term);
+        const fetchedArticles = await fetchArticles(term, page);
 
-          // Filter out articles with missing author or content
-          const filteredArticles = fetchedArticles.filter(
-            (article) => article.author && article.content
-          );
+        // Filter out articles with missing author or content
+        const filteredArticles = fetchedArticles.filter(
+          (article) => article.author && article.content
+        );
 
-          collectedArticles = [...collectedArticles, ...filteredArticles];
-
-          // Break if no more articles to fetch to avoid infinite loop
-          if (fetchedArticles.length < 10) break;
-        }
-
-        // Trim the list to exactly 10 articles if more were collected
-        setArticles(collectedArticles.slice(0, 10));
+        setArticles(filteredArticles.slice(0, 10));
         setError(null);
       } catch (err) {
         setError("Could not load articles.");
@@ -66,20 +57,29 @@ export default function News() {
     };
 
     fetchData();
-  }, [term]); // Refetch when `term` changes
+  }, [term, page]); // Refetch when `term` or `page` changes
 
   // Update search input state as user types
   const handleInputChange = (e) => {
     setSearchInput(e.target.value);
   };
 
-  // Update term when search button is clicked
+  // Update term and reset page when search button is clicked
   const handleSearch = (e) => {
     e.preventDefault();
     setTerm(searchInput.trim());
+    setPage(1); // Reset to page 1 on new search
   };
 
-  console.log(articles.map((article) => article.author));
+  // Navigate to the next page of articles
+  const handleNextPage = () => {
+    setPage((prevPage) => prevPage + 1);
+  };
+
+  // Navigate to the previous page of articles
+  const handlePreviousPage = () => {
+    setPage((prevPage) => Math.max(prevPage - 1, 1));
+  };
 
   return (
     <Box sx={{ padding: 4 }} className="h-screen">
@@ -98,7 +98,6 @@ export default function News() {
         <TextField
           variant="standard"
           label="Search for AI News"
-          value={searchInput}
           onChange={handleInputChange}
           sx={{ width: "300px", mr: 2 }}
           className="bg-white rounded p-2"
@@ -165,6 +164,32 @@ export default function News() {
             </Grid>
           ))}
         </Grid>
+      )}
+
+      {/* Pagination Controls */}
+      {!loading && !error && articles.length > 0 && (
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          mt={4}
+          className="mb-10"
+        >
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handlePreviousPage}
+            disabled={page === 1}
+          >
+            Previous
+          </Button>
+          <Typography mx={2} variant="body1" color="textPrimary">
+            Page {page}
+          </Typography>
+          <Button variant="contained" color="primary" onClick={handleNextPage}>
+            Next
+          </Button>
+        </Box>
       )}
     </Box>
   );
