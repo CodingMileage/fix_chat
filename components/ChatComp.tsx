@@ -38,7 +38,7 @@ const ChatComponent: React.FC = () => {
 
   return (
     <div className="flex flex-col h-screen w-screen p-4 box-border">
-      <div className="flex-grow overflow-y-auto p-4 flex flex-col gap-3">
+      <div className="flex-grow overflow-y-auto p-4 flex flex-col gap-3 mt-28">
         {messages.map((msg, index) => (
           <div
             key={index}

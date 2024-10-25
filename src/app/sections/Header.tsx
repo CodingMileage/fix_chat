@@ -37,7 +37,7 @@ export default function Header() {
             <nav className="hidden md:flex gap-6 items-center">
               <a href="/">Home</a>
               <a href="/aiUtility">AI Utility</a>
-              <a href="#">News</a>
+              <a href="/news">News</a>
               <a href="#">Guides</a>
               <a href="#">Courses</a>
               <button className="bg-white text-black px-4 py-2 rounded font-medium inline-flex justify-center tracking-tighter">
@@ -85,7 +85,7 @@ export default function Header() {
             AI Utility
           </a>
           <a
-            href="#"
+            href="/news"
             className="text-lg font-semibold text-white hover:text-purple-600 py-2"
             onClick={toggleMenu}
           >
