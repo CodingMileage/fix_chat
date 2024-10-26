@@ -3,13 +3,32 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { IoIosMenu, IoMdClose } from "react-icons/io";
+import { auth } from "@/config/firebase";
+import { useAuth } from "@/context/AuthContext";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { useRouter } from "next/navigation";
+import { SignOutButtonLogo } from "../components/SignOutButton";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user } = useAuth();
+  const router = useRouter();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const handleSignIn = async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      await signInWithPopup(auth, provider);
+      router.refresh(); // Redirect to homepage after sign-in
+    } catch (error) {
+      console.error("Sign in error:", error);
+    }
+  };
+
+  console.log(user);
 
   return (
     <header className="absolute top-0 left-0 w-full z-50">
@@ -40,9 +59,16 @@ export default function Header() {
               <a href="/news">News</a>
               <a href="#">Guides</a>
               <a href="#">Courses</a>
-              <button className="bg-white text-black px-4 py-2 rounded font-medium inline-flex justify-center tracking-tighter">
-                Try for free
-              </button>
+              {user ? (
+                <SignOutButtonLogo />
+              ) : (
+                <button
+                  onClick={handleSignIn}
+                  className="bg-white text-black px-4 py-2 rounded font-medium inline-flex justify-center tracking-tighter"
+                >
+                  Sign In
+                </button>
+              )}
             </nav>
           </div>
         </div>
@@ -105,12 +131,16 @@ export default function Header() {
           >
             Courses
           </a>
-          <button
-            className="bg-white text-black px-6 py-3 rounded font-medium mt-4"
-            onClick={toggleMenu}
-          >
-            Try for free
-          </button>
+          {user ? (
+            <SignOutButtonLogo />
+          ) : (
+            <button
+              onClick={handleSignIn}
+              className="bg-white text-black px-4 py-2 rounded font-medium inline-flex justify-center tracking-tighter"
+            >
+              Sign In
+            </button>
+          )}
         </nav>
       </div>
     </header>
