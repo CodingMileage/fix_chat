@@ -27,6 +27,27 @@ export function SignOutButtonLogo() {
   );
 }
 
+export function SignOutButtonn() {
+  const router = useRouter();
+  const handleSignOut = async () => {
+    try {
+      await firebaseSignOut(auth);
+      router.push("/");
+    } catch (error) {
+      console.error("Sign out error:", error);
+    }
+  };
+
+  return (
+    <button
+      className="m-3 hover:scale-110 duration-500 transition-all"
+      onClick={handleSignOut}
+    >
+      Logout
+    </button>
+  );
+}
+
 export function SignOutButton() {
   const handleSignOut = async () => {
     try {

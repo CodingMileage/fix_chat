@@ -18,7 +18,7 @@
     "@mui/material": "^5.16.7",
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
     "@prisma/client": "^5.18.0",
-    "@radix-ui/react-dropdown-menu": "^2.1.1",
+    "@radix-ui/react-dropdown-menu": "^2.1.2",
     "@react-three/drei": "^9.111.3",
     "@react-three/fiber": "^8.17.6",
     "@tabler/icons": "^3.15.0",

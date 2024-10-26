@@ -7,7 +7,15 @@ import { auth } from "@/config/firebase";
 import { useAuth } from "@/context/AuthContext";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useRouter } from "next/navigation";
-import { SignOutButtonLogo } from "../components/SignOutButton";
+import { SignOutButtonn, SignOutButtonLogo } from "../components/SignOutButton";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -60,7 +68,24 @@ export default function Header() {
               <a href="#">Guides</a>
               <a href="#">Courses</a>
               {user ? (
-                <SignOutButtonLogo />
+                <>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger>Account</DropdownMenuTrigger>
+                    <DropdownMenuContent>
+                      <DropdownMenuLabel>{user.displayName}</DropdownMenuLabel>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem>
+                        <a href="/dashboard">Profile</a>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem>Billing</DropdownMenuItem>
+                      <DropdownMenuItem>Team</DropdownMenuItem>
+                      <DropdownMenuItem>
+                        {" "}
+                        <SignOutButtonn />
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </>
               ) : (
                 <button
                   onClick={handleSignIn}
@@ -132,7 +157,20 @@ export default function Header() {
             Courses
           </a>
           {user ? (
-            <SignOutButtonLogo />
+            <>
+              <DropdownMenu>
+                <DropdownMenuTrigger>Open</DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem>Profile</DropdownMenuItem>
+                  <DropdownMenuItem>Billing</DropdownMenuItem>
+                  <DropdownMenuItem>Team</DropdownMenuItem>
+                  <DropdownMenuItem>Subscription</DropdownMenuItem>
+                </DropdownMenuContent>
+                <SignOutButtonLogo />
+              </DropdownMenu>
+            </>
           ) : (
             <button
               onClick={handleSignIn}
