@@ -82,7 +82,15 @@ export default function News() {
   };
 
   return (
-    <Box sx={{ padding: 4 }} className="h-screen">
+    <Box
+      sx={{
+        minHeight: "100vh",
+        padding: 4,
+        display: "flex",
+        flexDirection: "column",
+      }}
+      className="bg-gradient-to-b from-[#0e021a] to-[#1c0633"
+    >
       <Typography variant="h4" gutterBottom align="center" className="mt-24">
         AI News & Insights
       </Typography>
@@ -107,64 +115,68 @@ export default function News() {
         </Button>
       </Box>
 
-      {/* Loading, Error and Articles */}
-      {loading ? (
-        <Box display="flex" justifyContent="center">
-          <CircularProgress />
-        </Box>
-      ) : error ? (
-        <Typography color="error" align="center">
-          {error}
-        </Typography>
-      ) : (
-        <Grid container spacing={4}>
-          {articles.map((article, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
-              <Card
-                sx={{
-                  borderRadius: 2,
-                  boxShadow: 3,
-                  ":hover": {
-                    boxShadow: 6,
-                  },
-                  overflow: "hidden",
-                }}
-              >
-                {article.urlToImage && (
-                  <CardMedia
-                    component="img"
-                    height="200"
-                    image={article.urlToImage}
-                    alt={`Image for ${article.title}`}
-                  />
-                )}
-                <CardContent>
-                  <Typography variant="h6" gutterBottom>
-                    {article.title}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="textSecondary"
-                    gutterBottom
+      {/* Loading, Error, and Articles */}
+      <Box sx={{ flexGrow: 1 }}>
+        {loading ? (
+          <Box display="flex" justifyContent="center">
+            <CircularProgress />
+          </Box>
+        ) : error ? (
+          <Typography color="error" align="center">
+            {error}
+          </Typography>
+        ) : (
+          <Grid container spacing={4}>
+            {articles.map((article, index) => (
+              <Grid item xs={12} sm={6} md={4} key={index}>
+                <a href={article.url}>
+                  <Card
+                    sx={{
+                      borderRadius: 2,
+                      boxShadow: 3,
+                      ":hover": {
+                        boxShadow: 6,
+                      },
+                      overflow: "hidden",
+                    }}
                   >
-                    {article.description}
-                  </Typography>
-                  <Button
-                    variant="text"
-                    color="primary"
-                    component="a"
-                    href={article.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Read more
-                  </Button>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      )}
+                    {article.urlToImage && (
+                      <CardMedia
+                        component="img"
+                        height="200"
+                        image={article.urlToImage || "/images/logo2.png"} // Fallback image in public folder
+                        alt={`Image for ${article.title}`}
+                      />
+                    )}
+                    <CardContent>
+                      <Typography variant="h6" gutterBottom>
+                        {article.title}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        color="textSecondary"
+                        gutterBottom
+                      >
+                        {article.description}
+                      </Typography>
+                      <Button
+                        variant="text"
+                        color="primary"
+                        component="a"
+                        href={article.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Read more
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </a>
+              </Grid>
+            ))}
+          </Grid>
+        )}
+      </Box>
 
       {/* Pagination Controls */}
       {!loading && !error && articles.length > 0 && (
@@ -183,7 +195,7 @@ export default function News() {
           >
             Previous
           </Button>
-          <Typography mx={2} variant="body1" color="textPrimary">
+          <Typography mx={2} variant="body1" color="">
             Page {page}
           </Typography>
           <Button variant="contained" color="primary" onClick={handleNextPage}>

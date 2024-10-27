@@ -4,18 +4,10 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { IoIosMenu, IoMdClose } from "react-icons/io";
 import { auth } from "@/config/firebase";
+import { SignOutButtonn } from "../components/SignOutButton";
 import { useAuth } from "@/context/AuthContext";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useRouter } from "next/navigation";
-import { SignOutButtonn, SignOutButtonLogo } from "../components/SignOutButton";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,13 +22,11 @@ export default function Header() {
     const provider = new GoogleAuthProvider();
     try {
       await signInWithPopup(auth, provider);
-      router.refresh(); // Redirect to homepage after sign-in
+      router.refresh(); // Refresh or redirect as needed
     } catch (error) {
-      console.error("Sign in error:", error);
+      console.error("Sign-in error:", error);
     }
   };
-
-  console.log(user);
 
   return (
     <header className="absolute top-0 left-0 w-full z-50">
@@ -44,16 +34,13 @@ export default function Header() {
         <div className="container mx-auto">
           <div className="flex items-center justify-between">
             <h1 className="font-extrabold text-center text-3xl p-2">
-              {/* <a href="/">
-                Fix<span className="text-purple-600">Chat</span>
-              </a> */}
               <a href="/">
                 <Image
                   src="/images/logo2.png"
                   width={115}
                   height={115}
                   alt="FixChat"
-                ></Image>
+                />
               </a>
             </h1>
             <div className="md:hidden">
@@ -68,30 +55,13 @@ export default function Header() {
               <a href="#">Guides</a>
               <a href="#">Courses</a>
               {user ? (
-                <>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger>Account</DropdownMenuTrigger>
-                    <DropdownMenuContent>
-                      <DropdownMenuLabel>{user.displayName}</DropdownMenuLabel>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuItem>
-                        <a href="/dashboard">Profile</a>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem>Billing</DropdownMenuItem>
-                      <DropdownMenuItem>Team</DropdownMenuItem>
-                      <DropdownMenuItem>
-                        {" "}
-                        <SignOutButtonn />
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                </>
+                <SignOutButtonn />
               ) : (
                 <button
                   onClick={handleSignIn}
                   className="bg-white text-black px-4 py-2 rounded font-medium inline-flex justify-center tracking-tighter"
                 >
-                  Sign In
+                  Try for Free
                 </button>
               )}
             </nav>
@@ -157,26 +127,13 @@ export default function Header() {
             Courses
           </a>
           {user ? (
-            <>
-              <DropdownMenu>
-                <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem>Profile</DropdownMenuItem>
-                  <DropdownMenuItem>Billing</DropdownMenuItem>
-                  <DropdownMenuItem>Team</DropdownMenuItem>
-                  <DropdownMenuItem>Subscription</DropdownMenuItem>
-                </DropdownMenuContent>
-                <SignOutButtonLogo />
-              </DropdownMenu>
-            </>
+            <SignOutButtonn />
           ) : (
             <button
+              className="bg-white text-black px-6 py-3 rounded font-medium mt-4"
               onClick={handleSignIn}
-              className="bg-white text-black px-4 py-2 rounded font-medium inline-flex justify-center tracking-tighter"
             >
-              Sign In
+              Try for Free
             </button>
           )}
         </nav>

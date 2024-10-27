@@ -70,6 +70,11 @@ body {
   .section-description {
     @apply text-center text-[22px] leading-[30px] tracking-tight;
   }
+
+  /* In a global CSS file or Tailwind config */
+  .bg-gradient-full {
+    @apply min-h-screen bg-gradient-to-b from-[#0e021a] to-[#1c0633];
+  }
 }
 
 body {
