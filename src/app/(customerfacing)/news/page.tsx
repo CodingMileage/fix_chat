@@ -11,10 +11,19 @@ import {
   Button,
   CircularProgress,
 } from "@mui/material";
-import { useState, useEffect } from "react";
+import { useState, useEffect, SetStateAction } from "react";
+
+type Article = {
+  author: string;
+  content: string;
+  description: string;
+  title: string;
+  url: string;
+  urlToImage: string | null;
+};
 
 // Function to fetch articles
-async function fetchArticles(term, page = 1) {
+async function fetchArticles(term: string, page = 1): Promise<Article[]> {
   const apiKey = process.env.NEXT_PUBLIC_NEWS_API_KEY;
   const res = await fetch(
     `https://newsapi.org/v2/everything?q=${term}&pageSize=10&page=${page}&apiKey=${apiKey}`
@@ -27,10 +36,10 @@ async function fetchArticles(term, page = 1) {
 }
 
 export default function News() {
-  const [articles, setArticles] = useState([]);
+  const [articles, setArticles] = useState<Article[]>([]);
   const [term, setTerm] = useState("AI");
   const [searchInput, setSearchInput] = useState("AI");
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
 
@@ -60,12 +69,14 @@ export default function News() {
   }, [term, page]); // Refetch when `term` or `page` changes
 
   // Update search input state as user types
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: {
+    target: { value: SetStateAction<string> };
+  }) => {
     setSearchInput(e.target.value);
   };
 
   // Update term and reset page when search button is clicked
-  const handleSearch = (e) => {
+  const handleSearch = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     setTerm(searchInput.trim());
     setPage(1); // Reset to page 1 on new search
@@ -105,7 +116,7 @@ export default function News() {
       >
         <TextField
           variant="standard"
-          label="Search for AI News"
+          label="Search for News"
           onChange={handleInputChange}
           sx={{ width: "300px", mr: 2 }}
           className="bg-white rounded p-2"
@@ -129,7 +140,7 @@ export default function News() {
           <Grid container spacing={4}>
             {articles.map((article, index) => (
               <Grid item xs={12} sm={6} md={4} key={index}>
-                <a href={article.url}>
+                <a href={article.url} target="_blank" rel="noopener noreferrer">
                   <Card
                     sx={{
                       borderRadius: 2,
@@ -195,7 +206,7 @@ export default function News() {
           >
             Previous
           </Button>
-          <Typography mx={2} variant="body1" color="">
+          <Typography mx={2} variant="body1">
             Page {page}
           </Typography>
           <Button variant="contained" color="primary" onClick={handleNextPage}>

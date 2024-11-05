@@ -52,7 +52,8 @@ export default async function handler(
       // Send the AI response to the client
       res.status(200).json(assistantMessage);
     } catch (error) {
-      console.error("Error details:", error.response?.data || error.message);
+      const typedError = error as { response?: { data?: any }; message?: string };
+      console.error("Error details:", typedError.response?.data || typedError.message);
       res.status(500).json({ error: "Error fetching AI response" });
     }
   } else {

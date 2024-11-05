@@ -1,74 +1,57 @@
 "use client";
 
-import React, { createContext, useState, useEffect } from "react";
-import { auth, googleProvider, db } from "../config/firebase"; // Adjust the import based on your setup
+import React, { createContext, useState, useEffect, useContext } from "react";
+import { auth, googleProvider } from "../config/firebase"; // Adjust this path if needed
 import { signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
-import { doc, getDoc, setDoc } from "firebase/firestore";
 
 const AuthContext = createContext();
 
+// AuthProvider component to provide authentication state and methods to the rest of the app
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    // Monitor authentication state changes and set the user accordingly
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      // if (currentUser) {
-      //   handleUserDocument(currentUser);
-      // }
       setUser(currentUser);
+      setLoading(false); // Set loading to false once the auth state is known
     });
 
-    // Cleanup subscription on unmount
+    // Cleanup subscription on component unmount
     return () => unsubscribe();
   }, []);
 
-  // const handleUserDocument = async (user) => {
-  //   try {
-  //     const userDocRef = doc(db, "users", user.uid);
-  //     const userDocSnapshot = await getDoc(userDocRef);
-
-  //     if (!userDocSnapshot.exists()) {
-  //       // Create user document with default values
-  //       await setDoc(userDocRef, {
-  //         gamertag: "", // or any other default values
-  //         email: user.email || "",
-  //         likedBuilds: [],
-  //         builds: [],
-  //         createdAt: new Date(),
-  //       });
-  //       console.log("New user document created.");
-  //     }
-  //   } catch (error) {
-  //     console.error("Error handling user document: ", error);
-  //   }
-  // };
-
+  // Sign in with Google and handle potential errors
   const signInGoogle = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
       setError(null);
     } catch (err) {
-      console.error(err);
+      console.error("Google sign-in error:", err);
       setError("Failed to sign in. Please try again.");
     }
   };
 
+  // Sign out and handle potential errors
   const handleSignOut = async () => {
     try {
       await signOut(auth);
       setError(null);
     } catch (err) {
-      console.error(err);
+      console.error("Sign-out error:", err);
       setError("Failed to sign out. Please try again.");
     }
   };
 
+  // Provide user, loading, signInGoogle, handleSignOut, and error states through context
   return (
-    <AuthContext.Provider value={{ user, signInGoogle, handleSignOut, error }}>
+    <AuthContext.Provider value={{ user, loading, signInGoogle, handleSignOut, error }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
-export const useAuth = () => React.useContext(AuthContext);
+// Custom hook to use the AuthContext, ensuring that it’s always used within the provider
+export const useAuth = () => useContext(AuthContext);
