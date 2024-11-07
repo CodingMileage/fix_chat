@@ -13,7 +13,9 @@ export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useAuth();
   const router = useRouter();
-  const navRef = useRef(null);
+  
+  // Type navRef as HTMLDivElement
+  const navRef = useRef<HTMLDivElement | null>(null);
 
   const toggleNav = () => {
     setIsOpen(!isOpen);
@@ -30,8 +32,8 @@ export default function NavBar() {
   };
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (navRef.current && !navRef.current.contains(event.target)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
         setIsOpen(false);
       }
     };
