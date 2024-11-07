@@ -92,10 +92,10 @@ export default function NavBar() {
           <NavButton href="/news">
             <h1 className="text-center p-2 text-lg md:text-base">News</h1>
           </NavButton>
-          <NavButton href="/guides">
+          <NavButton href="/#">
             <h1 className="text-center p-2 text-lg md:text-base">Guides</h1>
           </NavButton>
-          <NavButton href="/courses">
+          <NavButton href="/#">
             <h1 className="text-center p-2 text-lg md:text-base">Courses</h1>
           </NavButton>
 
