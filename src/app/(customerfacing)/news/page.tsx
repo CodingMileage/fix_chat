@@ -22,6 +22,8 @@ type Article = {
   urlToImage: string | null;
 };
 
+const fallbackImage = "/images/logo2.png";
+
 // Function to fetch articles
 async function fetchArticles(term: string, page = 1): Promise<Article[]> {
   const apiKey = process.env.NEXT_PUBLIC_NEWS_API_KEY;
@@ -92,6 +94,8 @@ export default function News() {
     setPage((prevPage) => Math.max(prevPage - 1, 1));
   };
 
+  // articles.map((article) => console.log(article));
+
   return (
     <Box
       sx={{
@@ -155,7 +159,7 @@ export default function News() {
                       <CardMedia
                         component="img"
                         height="200"
-                        image={article.urlToImage || "/images/logo2.png"} // Fallback image in public folder
+                        image={article.urlToImage || fallbackImage} // Fallback image in public folder
                         alt={`Image for ${article.title}`}
                       />
                     )}
@@ -170,7 +174,7 @@ export default function News() {
                       >
                         {article.description}
                       </Typography>
-                      <Button
+                      {/* <Button
                         variant="text"
                         color="primary"
                         component="a"
@@ -179,7 +183,7 @@ export default function News() {
                         rel="noopener noreferrer"
                       >
                         Read more
-                      </Button>
+                      </Button> */}
                     </CardContent>
                   </Card>
                 </a>

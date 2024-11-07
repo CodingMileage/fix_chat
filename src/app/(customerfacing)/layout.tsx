@@ -1,5 +1,6 @@
 import { Nav, NavLink } from "../../components/Nav";
 import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
 import Header from "../sections/Header";
 import { AuthProvider } from "@/context/AuthContext";
 
@@ -12,10 +13,11 @@ export default function Layout({
 }>) {
   return (
     <AuthProvider>
+      {/* <Header /> */}
+      <NavBar />
       <div className="bg-gradient-to-b from-[#0e021a] to-[#1c0633] min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-grow">{children}</main>
-        <Footer />
+        {children}
+        {/* <Footer /> */}
       </div>
     </AuthProvider>
   );

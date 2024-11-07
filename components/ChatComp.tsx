@@ -1,5 +1,5 @@
 "use client";
-import { useState, FormEvent } from "react";
+import { useState, useEffect, useRef, FormEvent } from "react";
 import axios from "axios";
 
 interface Message {
@@ -10,6 +10,7 @@ interface Message {
 const ChatComponent: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
+  const lastMessageRef = useRef<HTMLDivElement | null>(null);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -36,12 +37,20 @@ const ChatComponent: React.FC = () => {
     }
   };
 
+  // Scroll to the latest message when messages update
+  useEffect(() => {
+    if (lastMessageRef.current) {
+      lastMessageRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages]);
+
   return (
-    <div className="flex flex-col h-screen w-screen p-4 box-border">
+    <div className="flex flex-col h-screen pb-4 box-border">
       <div className="flex-grow overflow-y-auto p-4 flex flex-col gap-3 mt-28">
         {messages.map((msg, index) => (
           <div
             key={index}
+            ref={index === messages.length - 1 ? lastMessageRef : null}
             className={`max-w-[70%] p-3 rounded-lg ${
               msg.role === "user"
                 ? "bg-blue-500 text-white self-end rounded-br-none"
